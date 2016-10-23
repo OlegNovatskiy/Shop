@@ -36,8 +36,8 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Головна', 'url' => ['/shop/index']],
-            ['label' => 'Категорії', 'url' => ['/shop/category']],
+            ['label' => 'Головна', 'url' => ['/products/index']],
+            ['label' => 'Категорії', 'url' => ['/products/category']],
             /*Yii::$app->user->isGuest ? (
                 ['label' => 'Вхід', 'url' => ['/site/login']]
             ) : (
