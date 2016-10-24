@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <link href="/../views/products/style/style.css" rel="stylesheet" type="text/css" >
 <div class="site-about">
     <!--Type code here-->
-    
+
     <table>
         <thead>
         <th>

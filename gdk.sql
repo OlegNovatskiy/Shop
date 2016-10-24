@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Час створення: Жов 23 2016 р., 22:10
+-- Час створення: Жов 24 2016 р., 11:57
 -- Версія сервера: 5.5.45
 -- Версія PHP: 5.5.28
 
@@ -56,6 +56,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `version` varchar(50) NOT NULL,
   `price` int(11) NOT NULL,
   `date` int(11) NOT NULL,
+  `image` varchar(100) NOT NULL,
   PRIMARY KEY (`id_product`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
@@ -63,9 +64,9 @@ CREATE TABLE IF NOT EXISTS `products` (
 -- Дамп даних таблиці `products`
 --
 
-INSERT INTO `products` (`id_product`, `type`, `maker`, `version`, `price`, `date`) VALUES
-(1, 1, 7, 'A830', 4000, 144239448),
-(2, 2, 7, 'Z500', 14350, 144239448);
+INSERT INTO `products` (`id_product`, `type`, `maker`, `version`, `price`, `date`, `image`) VALUES
+(1, 1, 7, 'A830', 4000, 144239448, ''),
+(2, 2, 7, 'Z500', 14350, 144239448, '');
 
 -- --------------------------------------------------------
 
