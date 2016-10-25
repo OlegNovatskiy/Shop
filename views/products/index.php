@@ -2,7 +2,7 @@
 /*fsdfdsfd*/
 /*asdasdasdasddas*/
 /* @var $this yii\web\View */
-
+//shos?
 use yii\helpers\Html;
 
 $this->title =  $data['header_title'];
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <li class="col-xs-12 col-sm-6 col-lg-2"><a href="#">Телефони</a></li>
                     <li class="col-xs-12 col-sm-6 col-lg-2"><a href="#">МП3плеєри</a></li>
                     <li class="col-xs-12 col-sm-6 col-lg-2"><a href="#">Камери</a></li>
-                    <li class="col-xs-12 col-sm-6 col-lg-2"><a href="#">Аксесуари</a></li>
+                    
 
                 </ul>
 
