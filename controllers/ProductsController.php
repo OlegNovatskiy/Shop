@@ -17,7 +17,7 @@ class ProductsController extends Controller{
         $data = array();
         $data['type'] = TypeProducts::find();
         $data['type'] = $data['type']->all();
-        //oleg
+        //oleggsfgsdf
         $data['products'] = Products::find()->limit(4);
         $data['products'] = $data['products']->all();
         $data['producer'] = Producer::find();
