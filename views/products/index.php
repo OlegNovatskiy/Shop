@@ -11,6 +11,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <link href="style/style.css" rel="stylesheet" type="text/css" >
 <div class="site-about">
     <!--Type code here-->
+
+
+
 <style>
     .navbar-default {
     background-color: #6927d8;
@@ -24,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <li class="col-xs-12 col-sm-6 col-lg-2"><a href="#">Ноутбуки</a></li>
                     <li class="col-xs-12 col-sm-6 col-lg-2"><a href="#">Телефони</a></li>
                     <li class="col-xs-12 col-sm-6 col-lg-2"><a href="#">МП3плеєри</a></li>
+                    <li class="col-xs-12 col-sm-6 col-lg-2"><a href="#">Камери</a></li>
                     <li class="col-xs-12 col-sm-6 col-lg-2"><a href="#">Камери</a></li>
                     
 
