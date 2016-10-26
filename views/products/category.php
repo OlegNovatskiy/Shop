@@ -36,7 +36,9 @@ $this->params['breadcrumbs'][] = $this->title;
 	.row{
 		width: 145%;
 	}
-	
+	#secondbutton{
+		width: 48%;
+	}
 </style>
 <div class="sizelist">
     <div class="col-sm-4">
@@ -83,107 +85,49 @@ $this->params['breadcrumbs'][] = $this->title;
   </div>
 <br>
 </div>
-	
-	<div class="col-sm-4">
+	<?php foreach($data['products'] as $product){?>
+	<div class="col-sm-4" id="product-<?php echo $product['id_product'];?>">
 		
 			<div class="picturebox">
-			<a href="lorem.html"><img src=".." 
+			<a href="lorem.html"><img src="/../views/products/foto.png"
   			width="196" height="200" alt="lorem"></a>
 			</div>
 			<div class="textbox">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+				<p><?php
+					foreach($data['producer'] as $producer){
+						if($producer['id_producer'] == $product['producer']){
+							echo $producer['name'];
+							break;
+						}
+					}
+					echo " ".$product['version'];?></p>
 			</div>
 			<div class="price">
-				<p>Price</p>
+				<p><?php echo $product['price'];?></p>
 			</div>
 			<div class="buttons">
-				<p><a href="#" class="btn btn-primary" id="mainbutton" role="button">Button</a> <a href="#" class="btn btn-default" id="secondbutton" role="button">Like!</a><a href="#" class="btn btn-default" id="thirdbutton" role="button">IN</a>
+				<p><span class="btn btn-primary" id="mainbutton" role="button">Добавити</span>
+					<span class="btn btn-default" id="secondbutton" role="button" onclick="addLike(<?php echo $product['id_product'];?>)">Like</span>
+				</p>
 			</div>
-		
 	</div>
-	<div class="col-sm-4">
-		
-		<div class="picturebox">
-			<a href="lorem.html"><img src=".." 
-  			width="196" height="200" alt="lorem"></a>
-			</div>
-			<div class="textbox">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-			</div>
-			<div class="price">
-				<p>Price</p>
-			</div>
-			<div class="buttons">
-				<p><a href="#" class="btn btn-primary" id="mainbutton" role="button">Button</a> <a href="#" class="btn btn-default" id="secondbutton" role="button">Like!</a><a href="#" class="btn btn-default" id="thirdbutton" role="button">IN</a>
-			</div>
-		
-	</div>
-	<div class="col-sm-4">
-		
-		<div class="picturebox">
-			<a href="lorem.html"><img src=".." 
-  			width="196" height="200" alt="lorem"></a>
-			</div>
-			<div class="textbox">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-			</div>
-			<div class="price">
-				<p>Price</p>
-			</div>
-			<div class="buttons">
-				<p><a href="#" class="btn btn-primary" id="mainbutton" role="button">Button</a> <a href="#" class="btn btn-default" id="secondbutton" role="button">Like!</a><a href="#" class="btn btn-default" id="thirdbutton" role="button">IN</a>
-			</div>
-		
-	</div>
-	<div class="col-sm-4">
-		
-			<div class="picturebox">
-			<a href="lorem.html"><img src=".." 
-  			width="196" height="200" alt="lorem"></a>
-			</div>
-			<div class="textbox">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-			</div>
-			<div class="price">
-				<p>Price</p>
-			</div>
-			<div class="buttons">
-				<p><a href="#" class="btn btn-primary" id="mainbutton" role="button">Button</a> <a href="#" class="btn btn-default" id="secondbutton" role="button">Like!</a><a href="#" class="btn btn-default" id="thirdbutton" role="button">IN</a>
-			
-		</div>
-	</div>
-	<div class="col-sm-4">
-		
-		<div class="picturebox">
-			<a href="lorem.html"><img src=".." 
-  			width="196" height="200" alt="lorem"></a>
-			</div>
-			<div class="textbox">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-			</div>
-			<div class="price">
-				<p>Price</p>
-			</div>
-			<div class="buttons">
-				<p><a href="#" class="btn btn-primary" id="mainbutton" role="button">Button</a> <a href="#" class="btn btn-default" id="secondbutton" role="button">Like!</a><a href="#" class="btn btn-default" id="thirdbutton" role="button">IN</a>
-			
-		</div>
-	</div>
-	<div class="col-sm-4">
-		
-		<div class="picturebox">
-			<a href="lorem.html"><img src=".." 
-  			width="196" height="200" alt="lorem"></a>
-			</div>
-			<div class="textbox">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-			</div>
-			<div class="price">
-				<p>Price</p>
-			</div>
-			<div class="buttons">
-				<p><a href="#" class="btn btn-primary" id="mainbutton" role="button">Button</a> <a href="#" class="btn btn-default" id="secondbutton" role="button">Like!</a><a href="#" class="btn btn-default" id="thirdbutton" role="button">IN</a>
-			</div>
-		
-	</div>
+	<?php } ?>
+	<div align="center"><?= \yii\widgets\LinkPager::widget(['pagination' => $data['page']]) ?></div>
 </div>
+<script>
+	function addLike(id_product) {
+		$.ajax({
+			url: 'gdk/web/index.php?r=products/addLike',
+			type: 'post',
+			data: {id_product: id_product},
+			dataType: 'json',
+			success: function() {
+				$('#secondbutton').css({"background-color":"green"});
+				alert("Like добавлено!!!");
+			},
+			error: function() {
+				alert("Like не поставився!!!");
+			}
+		});
+	}
+</script>
