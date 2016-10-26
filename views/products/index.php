@@ -1,6 +1,5 @@
 <?php
 /*fsdfdsfd*/
-/*asdasdasdasddas*/
 /* @var $this yii\web\View */
 //shos?
 use yii\helpers\Html;
