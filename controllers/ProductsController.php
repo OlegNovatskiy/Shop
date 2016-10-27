@@ -43,9 +43,19 @@ class ProductsController extends Controller{
         return "Hello World!!!";
     }
 
-    public function actionAddLike(){
-        return $this->render('index');
-        Products::updateAll(['like' => 1], ['like', 'id_product', Yii::$app->request->post('id_product')]);
+    public function actionAddlike(){
+        //  return $this->render('index');
+        //$id_product = Yii::$app->request->post('id_product');
+        if (Yii::$app->request->isAjax) {
+            $id_product = Yii::$app->request->post('id_product');
+            Products::upLike($id_product);//updateAll(['like' => 1], ['like', 'id_product', Yii::$app->request->post('id_product')]);
+
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return [
+                'code' => 100
+            ];
+        }
+
     }
 
 }

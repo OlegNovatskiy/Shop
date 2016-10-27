@@ -117,7 +117,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <script>
 	function addLike(id_product) {
 		$.ajax({
-			url: 'gdk/web/index.php?r=products/addLike',
+			url: 'index.php?r=products/addlike',
 			type: 'post',
 			data: {id_product: id_product},
 			dataType: 'json',
