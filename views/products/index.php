@@ -47,9 +47,9 @@ $this->params['breadcrumbs'][] = $this->title;
     </nav>
 <h3>FEATURED</h3>
     <style type="text/css">
-        p{	margin-left: 4px;
+        p{
+            margin-left: 4px;
             margin-right: 4px;
-
         }
         img{
             margin-left: 4px;
